@@ -63,14 +63,14 @@ body {
 
 .card-back {
     font-size: 6rem;
-    background-color: red;
+    background-color: #c73636;
     border-color: white;
     transform: rotateY(0);
 }
 
 .card-front {
     background-color: white;
-    border-color: red;;
+    border-color: #c73636;
     transform: rotateY(180deg);
     font-size: 4rem;
 }
