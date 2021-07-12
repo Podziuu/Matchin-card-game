@@ -1,3 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
 * {
     box-sizing: border-box;
+}
+
+body {
+    background: #D66D75;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 0;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.game-container {
+    margin: 50px auto;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    perspective: 500px;
+}
+
+.game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    font-size: 2rem;
+}
+
+.card {
+    position: relative;
+    height: 175px;
+    width: 125px;
+    cursor: pointer;
+}
+
+.card-face {
+    position: absolute;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 5px;
+    border-style: solid;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    transition: font-size 100ms, transform 500ms;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    font-size: 6rem;
+    background-color: red;
+    border-color: white;
+    transform: rotateY(0);
+}
+
+.card-front {
+    background-color: white;
+    border-color: red;;
+    transform: rotateY(180deg);
+    font-size: 4rem;
+}
+
+.card-back:hover {
+    font-size: 7rem;
+}
+
+.card-front:hover {
+    font-size: 5rem;
+}
+
+.card.visible .card-back {
+    transform: rotateY(-180deg);
+}
+
+.card.visible .card-face {
+    transform: rotateY(0);
+}
+
+.card-front .star {
+    color: rgb(252, 186, 3);
+}
+
+.card-front .tree {
+    color: greenyellow;
+}
+
+.card-front .car {
+    color: #fa5c34;
+}
+
+.card-front .dog {
+    color: #945413;
+}
+
+.card-front .ice-cream {
+    color: #f024e9;
+}
+
+.card-front .sun {
+    color: yellow;
+}
+
+.card-front .moon {
+    color: #7d7d7d;
+}
+
+.card.matched .card-front .card-value {
+    animation: dance 1s linear infinite;
+}
+
+@keyframes dance {
+    0%, 100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-30deg);
+    }
+
+    75% {
+        transform: rotate(30deg);
+    }
 }
