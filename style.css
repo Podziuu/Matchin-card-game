@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
@@ -9,6 +9,7 @@ body {
     background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .page-title {
@@ -122,6 +123,30 @@ body {
     animation: dance 1s linear infinite;
 }
 
+.overlay-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: red;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.overlay-text-small {
+    font-size: .3em;
+}
+
+.overlay-text.visible {
+    display: flex;
+    animation: grow 500ms forwards;
+}
+
 @keyframes dance {
     0%, 100% {
         transform: rotate(0);
@@ -133,5 +158,27 @@ body {
 
     75% {
         transform: rotate(30deg);
+    }
+}
+
+@keyframes grow {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to {
+        background-color: rgba(0, 0, 0, .8);
+        font-size: 10rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .game-info-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
