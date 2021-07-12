@@ -59,6 +59,7 @@ body {
     overflow: hidden;
     transition: font-size 100ms, transform 500ms;
     backface-visibility: hidden;
+    user-select: none;
 }
 
 .card-back {
